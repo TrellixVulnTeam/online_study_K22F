@@ -73,6 +73,7 @@
   .footer_content {
     display: unset; }
   .course_item {
+    width: 100%;
     padding: 0 5px; }
   .course_item-youtube {
     padding: unset; }
