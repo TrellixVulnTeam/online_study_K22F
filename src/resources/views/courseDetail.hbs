@@ -28,12 +28,12 @@
     </div>
     <ul class="course_detail-list" >
         <li class="course_detail-ad" onclick="unHideAd()">Công cụ điều khiển
-            <ul class="course_detail-ad_list">
+            <ul class="course_detail-ad_list hide-on-pc hide-on-mobile hide-on-tablet">
                 <li class="course_detail-ad_item"><a class="course_detail-ad_item--link" href="/courseDetail{{query}}/createDetail">Đăng khóa học chi tiết</a></li>
                 <li class="course_detail-ad_item"><a class="course_detail-ad_item--link" href="/courseDetail{{query}}/storeCourseDetail">Tổng hợp khóa học chi tiết</a></li>
             </ul>
         </li>
-        <li class="course_detail-after"> </li>
+        <li class="course_detail-after hide-on-pc hide-on-mobile hide-on-tablet"> </li>
         {{#each courses}}
             <li class="course_detail-item" data-index="{{@index}}" data-id="{{this.videoId}}" onclick="changeSrc(event)">{{this.lesson}} _ {{this.name}}</li>
         {{/each}}

@@ -1,6 +1,6 @@
 @media (min-width: 1023px) {
   .hide-on-pc {
-    display: none; } }
+    display: none !important; } }
 
 /* MOblie & tablet */
 @media (max-width: 1023px) {
@@ -10,12 +10,12 @@
 /* tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
   .hide-on-tablet {
-    display: none; } }
+    display: none !important; } }
 
 /* moblie */
 @media (max-width: 739px) {
   .hide-on-mobile {
-    display: none; }
+    display: none !important; }
   .app {
     overflow-x: hidden; }
   .container_body {
