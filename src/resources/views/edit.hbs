@@ -1,0 +1,31 @@
+<div class="grid wide">
+
+    <div class="courseCreate">
+        <div class="courseCreate_wrap">
+            <h3>CẬP NHẬT KHÓA HỌC</h3>
+            <form method="POST" action="/course/{{course._id}}?_method=PUT">
+                <div class="courseCreate_form">
+                    <label for="name">Tên khóa học</label>
+                    <input type="text" class="form-control" value="{{course.name}}" id="name" name="name" >
+                </div>
+                <div class="courseCreate_form">
+                    <label for="teacher">Tên giảng viên</label>
+                    <input type="text" class="form-control" value="{{course.teacher}}" id="teacher" name="teacher">
+                </div>
+                <div class="courseCreate_form">
+                    <label for="image">Liên kết hình ảnh</label>
+                    <input type="text" class="form-control" value="{{course.image}}" id="image" name="image">
+                </div>
+                <div class="courseCreate_form">
+                    <label for="term">Học kì theo năm</label>
+                    <input type="text" class="form-control" value="{{course.term}}" id="term" name="term" >
+                </div>
+                <div class="courseCreate_form">
+                    <label for="_term">Học kì theo khóa</label>
+                    <input type="text" class="form-control" value="{{course._term}}" id="_term" name="_term" >
+                </div>
+                <button type="submit" class="courseCreate_form-btn">LƯU KHÓA HỌC</button>
+            </form>
+        </div>
+    </div>
+</div>

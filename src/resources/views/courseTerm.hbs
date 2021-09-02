@@ -1,0 +1,111 @@
+<div class="course grid wide">
+    <div class="course_term hide-on-mobile">
+        <ul class="term">
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-cogs"></i>
+                Công cụ quản trị
+                </a>
+                <ul class="term_suv-list">
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/course/create">Đăng khóa học</a></li>
+                     <li class="term_suv-item"><a class="term_suv-item_link" href="/me/stored/course">Khóa học của tôi</a></li>
+                </ul>
+                
+            </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-mouse"></i>
+                Học kì 1 năm nhất
+                </a>
+            </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-file-csv"></i>
+                Học kì 2 năm nhất
+                </a>
+            </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-book-open"></i>
+                Học kì 1 năm 2
+                </a>
+            </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-camera"></i>
+                Học kì 2 năm 2
+                </a>
+                <ul class="term_suv-list">
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/course/ki-5/quan-tri-mang-may-tinh">Quản trị mạng máy tính</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-4/chuong-trinh-dich">Chương trình dịch</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-4/dien-tu-tuong-tu-va-so">Điên tử tương tự - số</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-4/tieng-anh-2">Tiếng Anh 2</a></li>
+                </ul>
+             </li>
+            <li class="term_item"><a href="/courseDetail/ki-5" class="term_item-link">
+                <i class="fas fa-music"></i>
+                Học kì 1 năm 3
+                </a>
+                <ul class="term_suv-list">
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-5/cau-truc-du-lieu-va-giai-thuat">Cấu trúc dữ liệu giải thuật</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/course/ki-5/he-quan-tri-co-so-du-lieu">Hệ quản trị CSDL</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-5/co-so-ly-thuyet-truyen-tin">Cơ sở lý thuyết truyền tin</a></li>
+                    <li class="term_suv-item"><a class="term_suv-item_link" href="/courseDetail/ki-5/ky-thuat-vi-xu-ly">Kỹ thuật vi xử lý</a></li>
+                </ul>
+             </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-school"></i>
+                Học kì 2 năm 3
+                </a>
+             </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                 <i class="fas fa-university"></i>
+                Học kì 1 năm 4
+                </a>
+             </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                <i class="fas fa-graduation-cap"></i>
+                Học kì 2 năm 4
+                </a>
+             </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                 <i class="fas fa-leaf"></i>
+                Học kì 1 năm 5
+                </a>
+             </li>
+            <li class="term_item"><a href="" class="term_item-link">
+                  <i class="fas fa-ad"></i>
+                Học kì 2 năm 5
+                </a>
+             </li>
+        </ul>
+    </div>
+    
+    <div class="course_item">
+            <ul class="course_menuMB-list hide-on-pc">
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-4" class="course_menuMB-item_link">Học kì 2 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-5" class="course_menuMB-item_link">Học kì 1 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm năm</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm năm</a></li>
+    </ul>
+            <div class="course_item-message"> Hiển thị {{count}} kết quả</div>
+            <div class="row">
+            {{#each courses}}
+            <div class="col l-4 c-12">
+                   <div class="item">
+                        <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
+                        <div class="item_content">
+                            <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
+                            <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
+                            <p class="item_content-term">{{this.term}}</p>
+                        </div>
+                   </div>
+
+            </div>
+            {{/each}}
+        
+            
+        </div>
+    </div>
+</div>

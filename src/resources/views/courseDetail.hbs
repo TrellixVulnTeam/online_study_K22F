@@ -1,0 +1,147 @@
+<div class="course_detail">
+    <ul class="course_menuMB-list hide-on-pc">
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-4" class="course_menuMB-item_link">Học kì 2 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-5" class="course_menuMB-item_link">Học kì 1 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm năm</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm năm</a></li>
+    </ul>
+    <div class="course_detail-img">
+        <img src="/img/donan.png" alt="" class="course_detail-img_link hide-on-mobile">
+    </div> 
+    <div class="iframe_mobile hide-on-pc">
+        <iframe class="iframe_mobile_link" src="{{courses.0.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="flat_screen hide-on-mobile">
+        <div class="iframe">
+            <iframe width="768" height="488" src="{{courses.0.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {{!-- <img src="/img/screen.jpg" alt="" class="iframe_img"> --}}
+        </div>
+        <div class="switch" onclick="changeScreen()">
+            <i class="fas fa-power-off"></i>
+        </div>
+    </div>
+    <ul class="course_detail-list" >
+        <li class="course_detail-ad" onclick="unHideAd()">Công cụ điều khiển
+            <ul class="course_detail-ad_list">
+                <li class="course_detail-ad_item"><a class="course_detail-ad_item--link" href="/courseDetail{{query}}/createDetail">Đăng khóa học chi tiết</a></li>
+                <li class="course_detail-ad_item"><a class="course_detail-ad_item--link" href="/courseDetail{{query}}/storeCourseDetail">Tổng hợp khóa học chi tiết</a></li>
+            </ul>
+        </li>
+        <li class="course_detail-after"> </li>
+        {{#each courses}}
+            <li class="course_detail-item" data-index="{{@index}}" data-id="{{this.videoId}}" onclick="changeSrc(event)">{{this.lesson}} _ {{this.name}}</li>
+        {{/each}}
+            
+    </ul>
+</div>
+
+<div class="course_connect">
+    <div class="grid wide">
+        <div class="store_title">Khóa học cùng học kì</div>  
+        <div class="course_item">
+                <div class="row">
+                {{#each courses1}}
+                <div class="col l-3 c-12">
+                    <div class="item">
+                            <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
+                            <div class="item_content">
+                                <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
+                                <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
+                                <p class="item_content-term">{{this.term}}</p>
+                            </div>
+                    </div>
+
+                </div>
+                {{/each}}
+                </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+    var liElements=document.getElementsByClassName("course_detail-item");
+    if(liElements.length!= 0){
+        liElements[0].classList.add('active');
+    }
+    
+    var iframeElement= document.getElementsByTagName('iframe');
+    var iframeDivElement = document.querySelector('.iframe');
+    var iframeImgElement= document.querySelector('.iframe_img');
+    var liElement = document.getElementsByClassName('course_detail-item');
+    var liActiveElement = document.getElementsByClassName('active');
+    var courseDetailAdElement= document.getElementsByClassName('course_detail-ad_list');
+    var courseDetailAfterElemet= document.querySelector('.course_detail-after');
+    function unHideAd(){
+            if(courseDetailAdElement[0].classList.contains('course_detail-ad_list--handle')){
+                courseDetailAdElement[0].classList.remove('course_detail-ad_list--handle');
+                courseDetailAfterElemet.style.display="none";
+            }else {
+                 courseDetailAdElement[0].classList.add('course_detail-ad_list--handle');
+                  courseDetailAfterElemet.style.display="block";
+            }
+           
+    }
+
+
+    function changeSrc(event){
+        if(iframeElement.length == 0) {
+                alert('Đã bật tivi đâu mà đòi chuyển kênh !!! hihi');
+            
+        }else {
+            iframeElement[0].src = event.target.dataset.id;
+            activeElement= document.querySelector('.active');
+            if(activeElement) {
+                activeElement.classList.remove('active');
+                event.target.classList.add('active');
+        }
+        
+        
+        
+    }
+    }
+    
+    function changeScreen() {
+                if(iframeElement) {
+                       if(iframeElement[0] == undefined){
+                           if(liElement.length != 0){
+                               var src= liActiveElement[0].dataset.id
+                                var htmls= `<iframe width="768" height="488" src="${src}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <img src="/img/screen.jpg" alt="" class="iframe_img" style="display:none;">
+                                `;
+                                iframeDivElement.innerHTML=htmls;
+                           }
+                        
+                        }
+                        else if(iframeElement[0].length!=0){
+                            
+                            iframeElement[0].remove();
+                            var htmls= `<img src="/img/screen.jpg" alt="" class="iframe_img" style="display:block;">`
+                            iframeDivElement.innerHTML=htmls;
+                        }
+                  }
+                       
+                   
+                
+                
+
+        }
+        
+     document.addEventListener('DOMContentLoaded', function(){
+          if(iframeElement){
+                if(liElement.length == 0){
+                    iframeElement[0].remove();
+                    var htmls= `<img src="/img/screen.jpg" alt="" class="iframe_img" style="display:block;">`
+                    iframeDivElement.innerHTML=htmls; 
+            }   
+              
+          }
+
+     })
+  
+</script>

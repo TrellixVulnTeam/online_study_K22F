@@ -1,0 +1,56 @@
+<div class="home">
+    <div class="home_wrap">
+        <video playsinline autoplay loop muted class="home_video" src="/video/mp4.mp4" ></video>
+        <div class="home_overlay"></div>
+        <div class="grid wide">
+            <div class="home_text ">
+                <div class="home_text-metting">Cảm ơn các bạn đã ghé thăm Website</div>
+                <div class="home_text-des">Rất mong các bạn ủng hộ website của chúng tôi !!!</div>
+                <div class="home_text-button"><a class="home_text-button_link" href="/course">HỌC NGAY</a></div>
+            </div>
+        </div> 
+    </div>
+    <div class="grid wide">
+            <div class="store_title mt-40" style=" color:#333;">Khóa học nổi bật</div>  
+            <div class="course_item">
+            <div class="row">
+            {{#each courses}}
+            <div class="col l-3 c-12">
+                   <div class="item" onclick="">
+                        <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
+                        <div class="item_content">
+                            <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
+                            <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
+                            <p class="item_content-term">{{this.term}}</p>
+                        </div>
+                   </div>
+
+            </div>
+            {{/each}}
+          
+            
+        
+            
+            </div>
+            <div style="text-align: center;">
+                <div class="home_text-button"><a class="home_text-button_link" href="/course">Xem tất cả</a></div>
+            </div>
+    </div>
+    </div>
+    <div class="home_polygon">
+           <video playsinline autoplay loop muted  class="home_polygon-video" src="/video/polygon.mp4" ></video>
+            <div class="home_polygon-text">
+                <div class="home_polygon-text_line1">
+                    Có rất nhiều khóa học hay và bổ ích tại đây. 
+                </div>
+                <div class="home_polygon-text_line2">
+                    Hãy nhanh tay tham gia học tập với chúng tôi !!! 
+                </div>
+                <div class="home_polygon-text_button">
+                    <a class="home_polygon-text_button--link" href="/course">Đến trang học tập</a>
+                </div>
+            </div>
+    </div> 
+
+    
+</div>
