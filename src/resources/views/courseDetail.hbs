@@ -19,7 +19,7 @@
     </div>
     <div class="flat_screen hide-on-mobile">
         <div class="iframe">
-            <iframe width="768" height="488" src="{{courses.0.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe id="iframe" width="768" height="488" src="{{courses.0.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             {{!-- <img src="/img/screen.jpg" alt="" class="iframe_img"> --}}
         </div>
         <div class="switch" onclick="changeScreen()">
@@ -72,6 +72,7 @@
     
     var iframeElement= document.getElementsByTagName('iframe');
     var iframeDivElement = document.querySelector('.iframe');
+    var iframeDivElementId = document.getElementById('iframe');
     var iframeImgElement= document.querySelector('.iframe_img');
     var liElement = document.getElementsByClassName('course_detail-item');
     var liActiveElement = document.getElementsByClassName('active');
@@ -90,20 +91,19 @@
 
 
     function changeSrc(event){
+       
         if(iframeElement.length == 0) {
                 alert('Đã bật tivi đâu mà đòi chuyển kênh !!! hihi');
             
         }else {
-            iframeElement[0].src = event.target.dataset.id;
+            iframeDivElementId.src = event.target.dataset.id;
+            console.log(iframeDivElementId.src);
             activeElement= document.querySelector('.active');
             if(activeElement) {
                 activeElement.classList.remove('active');
                 event.target.classList.add('active');
+            }
         }
-        
-        
-        
-    }
     }
     
     function changeScreen() {
