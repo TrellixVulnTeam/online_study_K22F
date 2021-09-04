@@ -72,7 +72,7 @@
     
     var iframeElement= document.getElementsByTagName('iframe');
     var iframeDivElement = document.querySelector('.iframe');
-    var iframeDivElementId = document.getElementById('iframe');
+    var iframeElementId = document.getElementById('iframe');
     var iframeImgElement= document.querySelector('.iframe_img');
     var liElement = document.getElementsByClassName('course_detail-item');
     var liActiveElement = document.getElementsByClassName('active');
@@ -96,8 +96,8 @@
                 alert('Đã bật tivi đâu mà đòi chuyển kênh !!! hihi');
             
         }else {
-            iframeDivElementId.src = event.target.dataset.id;
-            console.log(iframeDivElementId.src);
+            iframeElementId.src = event.target.dataset.id;
+            iframeElement[0].src=event.target.dataset.id;
             activeElement= document.querySelector('.active');
             if(activeElement) {
                 activeElement.classList.remove('active');
