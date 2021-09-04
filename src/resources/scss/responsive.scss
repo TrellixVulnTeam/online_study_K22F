@@ -217,3 +217,13 @@
         text-decoration: none;
    }
 }
+
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 739px){
+      .app { 
+        background-position:center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    }
+  }
