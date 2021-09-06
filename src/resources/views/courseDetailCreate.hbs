@@ -3,8 +3,8 @@
     <div class="courseCreate">
         <div class="courseCreate_wrap">
 
-            <h3>{{courses.0.name}}</h3>
-            <form method="POST" action="/courseDetail/{{courses.0.term}}/{{courses.0._slug}}/store">
+            <h3>{{course.0.name}}</h3>
+            <form method="POST" action="/courseDetail/{{course.0._term}}/{{course.0.slug}}/store">
                 <div class="courseCreate_form">
                     <label for="videoId">Liên kết video</label>
                     <input type="text" class="form-control" id="videoId" name="videoId">
@@ -14,13 +14,13 @@
                     <input type="text" class="form-control" id="lesson" name="lesson" placeholder="VD: Buổi số 1">
                 </div>
                  <div class="courseCreate_form">
-                    <input type="hidden" type="text" class="form-control" value="{{courses.0.name}}" id="name" name="name" >
+                    <input type="hidden" type="text" class="form-control" value="{{course.0.name}}" id="name" name="name" >
                 </div>
                 <div class="courseCreate_form">
-                    <input type="hidden" type="text" class="form-control" value="{{courses.0.term}}" id="term" name="term" >
+                    <input type="hidden" type="text" class="form-control" value="{{course.0._term}}" id="term" name="term" >
                 </div>
                 <div class="courseCreate_form">
-                    <input type="hidden" type="text" class="form-control" value="{{courses.0._slug}}" id="_slug" name="_slug" >
+                    <input type="hidden" type="text" class="form-control" value="{{course.0.slug}}" id="_slug" name="_slug" >
                 </div>
                 <button type="submit" class="courseCreate_form-btn">Đăng Khóa Học</button>
             </form>

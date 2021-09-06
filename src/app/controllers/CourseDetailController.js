@@ -99,11 +99,24 @@ class CourseDetailController{
 
    //get /courseDetail/:term//:slug/createDetail
    createDetail(req,res, next){
-      CourseDetail.findWithDeleted({_slug: req.params.slug})
-      .then(courses =>res.render('courseDetailCreate', {
-       courses : multipleMongooseToObject(courses)
-      }))
-      .catch(next)
+      var pathArray = req.url.split('/');
+      var [a,b,c,...rest]=pathArray;
+      b.toString();
+      c.toString();
+      Promise.all([CourseDetail.findWithDeleted({_slug: req.params.slug}),Course.find({slug : c})])
+      .then(([courses,course]) => {
+            res.render('courseDetailCreate', {
+                  course:multipleMongooseToObject(course),
+                  courses : multipleMongooseToObject(courses)
+               })
+            
+      })
+      // .catch(next)
+      // CourseDetail.findWithDeleted({_slug: req.params.slug})
+      // .then(courses =>res.render('courseDetailCreate', {
+      //  courses : multipleMongooseToObject(courses)
+      // }))
+      // .catch(next)
    }
 
     //get /courseDetail/:term//:slug/createDetail
