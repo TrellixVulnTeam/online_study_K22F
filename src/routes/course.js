@@ -11,6 +11,7 @@ router.delete('/:id',courseController.destroy);
 router.delete('/:id/force',courseController.forceDestroy);
 router.post('/store',courseController.store);
 router.get('/create',courseController.create);
+router.post('/',courseController.search);
 
 
 

@@ -43,13 +43,47 @@
    .header{
         height: var(--header-height);
    }
-
    .header_item {
        line-height: var(--header-height);
    }
 
    .header_item:hover .header_navbar-list{
        display: none;
+   }
+
+   .searchMB{
+        display: none;
+   }
+
+   .searchMB_wrap{
+       display: flex;
+       background-color: #fff;
+       justify-content: space-evenly;
+       position: fixed;
+       width: 100%;
+       top:var(--header-height);
+       animation: showSearchMB ease-in 0.3s;
+   }
+
+   @keyframes showSearchMB {
+       from{
+            opacity: 0;
+       }
+
+       to{
+            opacity: 1;
+       }
+   }
+
+   .searchMB-input{
+       border: unset;
+       outline: none;
+       font-size: 1.6rem;
+   }
+
+   .form-control{
+        width: 70%;
+        padding: .375rem 1.75rem;
    }
 
    .home_wrap{

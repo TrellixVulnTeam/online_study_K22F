@@ -99,8 +99,32 @@ class CourseController{
                  break;
             default:
                 res.json({message:'action is invalid'})
+            }
         }
- }
+
+    //get  course/search
+     search(req, res, next){
+         var string =(req.body.search).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') .replace(/đ/g, 'd').replace(/Đ/g, 'D').replace(/y/g,'i');
+            Course.find({})
+            .then(results => {
+                results.map(result => {result.name = result.name.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') .replace(/đ/g, 'd').replace(/Đ/g, 'D').replace(/y/g,'i')});
+                results.map(result =>{result.teacher = result.teacher.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') .replace(/đ/g, 'd').replace(/Đ/g, 'D').replace(/y/g,'i')});
+                results.map(result =>{result.term = result.term.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') .replace(/đ/g, 'd').replace(/Đ/g, 'D').replace(/y/g,'i')});
+                            
+                results=results.filter(result => {return result.name.includes(string) || result.teacher.includes(string) || result.term.includes(string);});
+            
+                var slug=[];
+                results.map(result =>{slug.push(result.slug)});
+                Promise.all([Course.find({slug:{$in:slug}}),Course.countDocuments({slug:{$in:slug}})])
+                .then(([courses, count]) => res.render('search',{
+                   courses: multipleMongooseToObject(courses),
+                   count
+                }))
+                .catch(next)
+               
+            })
+            .catch(next)
+    }
 }
 
 

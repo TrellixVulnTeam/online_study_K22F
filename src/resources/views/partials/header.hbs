@@ -2,9 +2,8 @@
     <div class="grid wide">
         <div class="header_wrap">
             <ul class="header_list">
-                <li class="header_item hide-on-mobile"><a class="header_item-link brand" href="">KMA</a></li>
-                <li class="header_item "><a class="header_item-link" href="/">TRANG CHỦ</a></li>
-                <li class="header_item hide-on-pc"><a class="header_item-link brand" href="">KMA</a></li>
+                <li class="header_item"><a class="header_item-link brand" href="/">KMA</a></li>
+                <li class="header_item hide-on-mobile"><a class="header_item-link" href="/">TRANG CHỦ</a></li>
                 <li class="header_item"><a class="header_item-link" href="/course">KHÓA HỌC</a>
                     <ul class="header_navbar-list">
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="">Học kì 1 năm nhất</a></li>
@@ -41,8 +40,31 @@
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="https://www.youtube.com/channel/UCvSkmTXALKYjA2LJziDifdA/playlists" target="_blank">Kênh Youtube</a></li>
                     </ul>
                 </li>
+                <li onclick="showSearchMB()" class="header_item header_searchMB hide-on-pc">
+                    <i class="fas fa-search header_searchMB-link"></i>
+                </li>
+                <li class="header_item hide-on-mobile">
+                    <form method="POST" action="/course" class="header_item-form form-inline my-2 my-lg-0">
+                        <input class="header_item-input form-control mr-sm-2" type="search" name="search" placeholder="Tìm kiếm tại đây" aria-label="Search" required>
+                        <button class="header_item-button btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                    </form>
+                </li>
 
             </ul>
+            <div class="searchMB hide-on-pc">
+                <form method="POST" action="/course" class="form-inline my-lg-0">
+                    <div class="searchMB_wrap grid wide">
+                        <input class="form-control searchMB-input mr-sm-2" type="search" name="search" placeholder="Tìm kiếm tại đây" aria-label="Search" required>
+                         <button class="header_item-button btn btn-danger my-2 " type="submit">Tìm kiếm</button>
+                    </div>   
+                </form>
+            </div> 
         </div>
     </div>
 </header>
+<script>
+    function showSearchMB(){
+        searchMB= document.querySelector('.searchMB');
+       searchMB.style.display= (searchMB.style.display == 'none') ? 'block' : 'none';
+    }
+</script>

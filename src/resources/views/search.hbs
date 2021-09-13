@@ -1,0 +1,36 @@
+<div class="course grid wide">  
+    <div class="course_item">
+        <ul class="course_menuMB-list hide-on-pc">
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm nhất</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-4" class="course_menuMB-item_link">Học kì 2 năm hai</a></li>
+            <li class="course_menuMB-item"><a href="/courseDetail/ki-5" class="course_menuMB-item_link">Học kì 1 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm ba</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm bốn</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 1 năm năm</a></li>
+            <li class="course_menuMB-item"><a href="" class="course_menuMB-item_link">Học kì 2 năm năm</a></li>
+         </ul>
+        {{#if count}}
+        <div class="course_item-message"> Hiển thị {{count}} kết quả</div>
+        <div class="row">
+            {{#each courses}}
+            <div class="col l-3 c-12">
+                   <div class="item">
+                        <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
+                        <div class="item_content">
+                            <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
+                            <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
+                            <p class="item_content-term">{{this.term}}</p>
+                        </div>
+                   </div>
+
+            </div>
+            {{/each}}            
+        </div>
+        {{else}}
+        <div class="course_item-message"> Không có kết quả nào !!!</div>
+        {{/if}}
+    </div>
+</div>
