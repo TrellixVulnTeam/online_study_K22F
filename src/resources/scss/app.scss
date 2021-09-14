@@ -676,6 +676,10 @@
     color: red ;
 }
 
+.courseCreate_error {
+    font-size: 1.4rem;
+}
+
 //me stored course
 .store_title{
     font-size: 3.6rem;
@@ -1023,6 +1027,16 @@
     padding-left: 20px;
     color: #fff;
     text-decoration: none;
+}
+
+
+.header_item-img {
+    display: block;
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right:5px;
 }
 
 // FOOTER 

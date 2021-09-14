@@ -19,8 +19,10 @@
   },
   "homepage": "https://github.com/CANHDINH31/KMA_ONLINE#readme",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.3",
+    "md5": "^2.3.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.7",
     "mongoose-delete": "^0.5.3",

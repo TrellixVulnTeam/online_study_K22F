@@ -49,6 +49,10 @@
                         <button class="header_item-button btn btn-outline-light my-2 my-sm-0" type="submit">Tìm kiếm</button>
                     </form>
                 </li>
+               {{#if user}}
+               <li class="header_item hide-on-mobile hide-on-tablet"> <img class="header_item-img" src="{{user.avatar}}" alt=""><a href="{{user.link}}" class="header_item-link" target="_blank">{{user.name}}</a></li>
+               {{/if}}
+               
 
             </ul>
             <div class="searchMB hide-on-pc">
