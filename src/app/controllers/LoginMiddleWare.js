@@ -44,6 +44,7 @@ class LoginMiddleWare{
                     var errorPassword = 'Bạn đã nhập sai mật khẩu. Vui lòng nhập lại. Nếu quên hãy liên hệ lại admin để lấy lại mật khẩu.'
                     res.render('login',{
                         errorPassword,
+                        usernameLogin,
                     });
                     return;
                 } 
