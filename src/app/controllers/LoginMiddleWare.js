@@ -49,8 +49,10 @@ class LoginMiddleWare{
                     return;
                 } 
                 res.cookie('UserId',user.id,{
-                    signed: true,
+                     signed: true,
+                     expires: new Date(Date.now() + 24 * 3600000)
                 });
+                res.redirect('back')
                 next();
                 })  
             .catch(next)
