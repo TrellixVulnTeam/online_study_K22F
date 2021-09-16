@@ -5,7 +5,7 @@ class SiteController{
 
     //get  /home
     index(req,res, next){
-        Course.find({})
+        Course.find({}).skip(0).limit(8)
             .then(courses => {
              res.render('home', {
                  courses : multipleMongooseToObject(courses),

@@ -5,18 +5,28 @@ const {mongooseToObject} =  require('../../util/mongose');
 
 
 
+
 class CourseController{
 
 
     //get  /course
     index(req,res, next){
-        Course.find({})
-            .then(courses => {
-             res.render('course', {
-                 courses : multipleMongooseToObject(courses)
-                });
-            })
-            .catch(next)
+       var  page = parseInt(req.query.page) ;
+        var page = (page) ? parseInt(req.query.page) : 1
+       
+       if(page <1 ){
+           page =1;
+       }
+       var skip = (page-1) * 9;
+       Promise.all([Course.countDocuments({}),Course.find({}).skip(skip).limit(9)])
+        .then(([count,courses])=>{
+                res.render('course',{
+                    courses : multipleMongooseToObject(courses),
+                    count,
+                    page,
+                })
+        })
+        .catch(next)
     }
 
 

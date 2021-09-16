@@ -11,8 +11,7 @@ const Course = new Schema({
     image: {type: String, require:true},
     term: {type: String, require:true},
     _term: {type: String, require:true},
-    slug: {type: String, slug:'name' , unique:true},
-    
+    slug: {type: String, slug:'name' , unique:true},    
   }, {
     timestamps: true,
   });

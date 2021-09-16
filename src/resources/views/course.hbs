@@ -3,7 +3,7 @@
         <ul class="term">
             <li class="term_item"><a href="" class="term_item-link">
                 <i class="fas fa-cogs"></i>
-                Công cụ quản trị
+                Công cụ quản trị</h1>
                 </a>
                 <ul class="term_suv-list hide-on-tablet">
                     <li class="term_suv-item"><a class="term_suv-item_link" href="/course/create">Đăng khóa học</a></li>
@@ -100,6 +100,7 @@
                    <div class="item">
                         <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
                         <div class="item_content">
+                            
                             <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
                             <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
                             <p class="item_content-term">{{this.term}}</p>
@@ -107,9 +108,44 @@
                    </div>
 
             </div>
-            {{/each}}
+            {{else}}
+            <div class="alert alert-success mt-4 col l-12 c-12" style="font-size:2.0rem;border-radius:8px" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>Định hack website à cưng, ad đề phòng trường hợp này rồi !!! </p>
+                <hr>
+                <p class="mb-0">Quay lại page có sẵn !!!  (^:^) NHANH !!!</p>
+            </div>
+             {{/each}}
+            <nav class="course_pagination col l-12">
+                <ul class="pagination course_pagination-list">
+        
+                </ul>
+            </nav>
+           
         
             
         </div>
     </div>
 </div>
+
+<script>
+    var pageNumber = Math.ceil({{count}} / 9)
+    var pageCurrent= 'data-id=' + {{page}};
+    var coursePaginationList = document.querySelector('.course_pagination-list');
+   
+   
+
+    for(i = 1 ; i <= pageNumber ; i++){      
+        var item=`<li class="page-item course_pagination-item data-id=${i}"> <a class="page-link" href="?page=${i}" >${i}</a></li>`
+        coursePaginationList.innerHTML+=item;
+    }
+   
+       var coursePaginationItem =Array.prototype.slice.call(document.querySelectorAll('.course_pagination-item'));
+            coursePaginationItemActive=coursePaginationItem.filter(coursePaginationItemActive => 
+                    coursePaginationItemActive.classList[2] == pageCurrent );
+            coursePaginationItemActive[0].classList.add('active');
+ 
+
+    
+</script>
+
