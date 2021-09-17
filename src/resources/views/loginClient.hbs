@@ -1,0 +1,44 @@
+
+<div class="grid wide">
+    <div class="courseCreate"> 
+        <div class="courseCreate_wrap">
+            {{#if alert}}
+            <div class="alert alert-success courseCreate_error alert-dismissible fade show" role="alert">
+                        <strong>Thông báo !!! </strong> {{alert}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+            </div>
+            {{/if}}
+            <h3>ĐĂNG NHẬP</h3>
+            <form method="POST">
+                <div class="courseCreate_form">
+                    <label for="name">Tên tài khoản</label>
+                    <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} placeholder="{{usernameLogin}}" {{/if}} required>
+                    {{#if errorUser}}
+                    <div class="alert alert-danger courseCreate_error alert-dismissible fade show" role="alert">
+                        <strong>Cảnh báo !!! </strong> {{errorUser}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="courseCreate_form">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    {{#if errorPassword}}
+                    <div class="alert alert-danger courseCreate_error alert-dismissible fade show" role="alert">
+                        <strong>Cảnh báo !!! </strong> {{errorPassword}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {{/if}}
+                </div>
+                <button type="submit" class="courseCreate_form-btn">Đăng Nhập</button>
+            </form>
+
+        </div>
+    </div>
+</div>

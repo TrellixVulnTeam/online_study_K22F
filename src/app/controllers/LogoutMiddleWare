@@ -13,8 +13,6 @@ class LogoutMiddleWare{
         logout(req,res,next){
                 res.cookie('UserId','none');
                 res.redirect('back')
-                // res.clearCookie(req.signedCookies.UserId);
-                // res.send(req.signedCookies.UserId);
         }
 }
 

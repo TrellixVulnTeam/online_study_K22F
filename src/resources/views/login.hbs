@@ -1,11 +1,11 @@
 <div class="grid wide">
     <div class="courseCreate">
         <div class="courseCreate_wrap">
-            <h3>ĐĂNG NHẬP</h3>
+            <h3>ĐĂNG NHẬP QUẢN TRỊ VIÊN</h3>
             <form method="POST">
                 <div class="courseCreate_form">
                     <label for="name">Tên tài khoản</label>
-                    <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} placeholder="{{usernameLogin}}" {{/if}} required>
+                    <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} value="{{usernameLogin}}" {{/if}} required>
                     {{#if errorUser}}
                     <div class="alert alert-danger courseCreate_error alert-dismissible fade show" role="alert">
                         <strong>Cảnh báo !!! </strong> {{errorUser}}
