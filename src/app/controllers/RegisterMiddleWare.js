@@ -45,9 +45,10 @@ class RegisterMiddleWare{
                                                 const client = new Client(req.body);
                                                 var alert = 'xin chúc mừng bạn đã đăng kí tài khoản thành công !!! Hãy nhanh chóng đăng nhập và khám phá nhá !!!'
                                                 client.save()      
-                                                .then(() => res.render('loginClient',{
-                                                        alert,
-                                                }))
+                                                .then(() => {res.redirect('/loginClient')
+                                                        res.render('loginClient',{alert})
+                                                })
+                                               
                                                 .catch(next);
                                        }
                                 }
