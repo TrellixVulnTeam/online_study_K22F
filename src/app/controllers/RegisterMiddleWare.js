@@ -43,10 +43,12 @@ class RegisterMiddleWare{
                                        else{
                                                 req.body.avatar= '/'+req.file.path.split('\\').slice(2).join('/');
                                                 const client = new Client(req.body);
-                                                var alert = 'xin chúc mừng bạn đã đăng kí tài khoản thành công !!! Hãy nhanh chóng đăng nhập và khám phá nhá !!!'
                                                 client.save()      
-                                                .then(() => {res.redirect('/loginClient')
-                                                        res.render('loginClient',{alert})
+                                                .then(() => {   
+                                                        var alert = 'xin chúc mừng bạn đã đăng kí tài khoản thành công !!! Hãy nhanh chóng đăng nhập và khám phá nhá !!!'
+                                                        res.redirect('/loginClient?alert='+alert)
+                        
+                                                                
                                                 })
                                                
                                                 .catch(next);

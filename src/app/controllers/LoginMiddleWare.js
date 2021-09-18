@@ -38,7 +38,8 @@ class LoginMiddleWare{
 
     loginClient(req,res,next){
         if(!req.signedCookies.UserId){
-            res.render('loginClient')
+            var alert=  req.query.alert;
+            res.render('loginClient',{alert})
         }else {
             Client.findOne({_id : req.signedCookies.UserId})
                  .then(user =>{
