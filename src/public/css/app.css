@@ -95,13 +95,6 @@
   text-decoration: none;
   color: #fff; }
 
-.home_polygon-text_button--link:hover .heart {
-  width: 180px;
-  background: radial-gradient(circle at 60% 65%, rgba(7, 116, 180, 0.9) 64%, transparent 65%) top left, radial-gradient(circle at 40% 65%, rgba(7, 116, 180, 0.9) 64%, transparent 65%) top right, linear-gradient(to bottom left, rgba(7, 116, 180, 0.9) 43%, transparent 43%) bottom left, linear-gradient(to bottom right, rgba(7, 116, 180, 0.9) 43%, transparent 43%) bottom right;
-  background-size: 50% 50%;
-  background-repeat: no-repeat;
-  display: inline-block; }
-
 .heart {
   width: 180px;
   background: radial-gradient(circle at 60% 65%, rgba(240, 81, 35, 0.9) 64%, transparent 65%) top left, radial-gradient(circle at 40% 65%, rgba(240, 81, 35, 0.9) 64%, transparent 65%) top right, linear-gradient(to bottom left, rgba(240, 81, 35, 0.9) 43%, transparent 43%) bottom left, linear-gradient(to bottom right, rgba(240, 81, 35, 0.9) 43%, transparent 43%) bottom right;

@@ -81,6 +81,20 @@
        font-size: 1.6rem;
    }
 
+   .home_polygon-text_button{
+    right: 36%;
+   }
+
+   .home_polygon-text_button--link{
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    background-color: rgba(240, 81, 35,0.9);
+    padding: 4px 8px;
+    border-radius: 20px;
+    }
+
    .form-control{
         width: 70%;
         padding: .375rem 1.75rem;
