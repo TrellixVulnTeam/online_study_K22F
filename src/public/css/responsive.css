@@ -50,31 +50,16 @@
     padding: .375rem 1.75rem; }
   .home_wrap {
     min-height: 620px; }
-  .home video {
-    top: 0;
-    height: 100%;
-    object-fit: cover; }
   .home_text {
-    text-align: center;
-    top: 50%;
-    transform: translateY(-50%); }
-  .home_text-metting {
-    font-size: 3.2rem;
-    letter-spacing: unset; }
-  .home_text-des {
-    font-size: 2.0rem; }
-  .home_overlay {
-    background-color: rgba(0, 0, 0, 0.2); }
-  .item_img {
-    height: 220px; }
-  .home_polygon {
-    min-height: 380px; }
-  .home_polygon-text {
-    top: 10%; }
-  .home_polygon-text_line1 {
-    font-size: 3.0rem; }
-  .home_polygon-text_line2 {
-    font-size: 1.6rem; }
+    font-size: 4.4rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.8); }
+  .home_des {
+    font-size: 2.0rem;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.8); }
   footer {
     background-color: #151515;
     padding-bottom: 30px;
