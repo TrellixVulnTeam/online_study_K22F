@@ -9,8 +9,16 @@ const logoutMiddleWare = require('../app/controllers/LogoutMiddleWare');
 const registerMiddleWare = require('../app/controllers/RegisterMiddleWare')
 
 const multer  = require('multer')
-const upload = multer({ dest: 'src/public/uploads/' })
-
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'src/public/uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, 'test'+file.originalname)
+    }
+  })
+const upload = multer({ storage: storage })
+// const upload = multer({ dest: 'src/public/uploads/' })
 
 
 function route(app) {
