@@ -27,11 +27,6 @@ class LoginMiddleWare{
                  })
                  .catch(next)
             }
-        // }else{
-        //     User.findOne({_id : req.signedCookies.UserId})
-        //         .then( user => res.send('hi'))
-        //         .catch(res.render('login'))
-        // }
        
   
     }
@@ -45,11 +40,7 @@ class LoginMiddleWare{
                  .then(user =>{
                      next();
                  })
-                 .catch(next)
-             
-             
-             
-              
+                 .catch(next)   
         }
      }
 
@@ -90,20 +81,18 @@ class LoginMiddleWare{
     postloginclient(req,res,next){
         var usernameLogin= req.body.name;
         var passwordLogin = req.body.password;
-        
-
          Client.findOne({user : usernameLogin})
             .then(user => {
                 if(!user){
                     var errorUser = 'Tài khoản không tồn tại, hãy click vào đăng kí ở bên trên'
-                    res.render('login',{
+                    res.render('loginClient',{
                         errorUser,
                     });
                     return;
                 }
                 if(user.password != passwordLogin){
                     var errorPassword = 'Bạn đã nhập sai mật khẩu. Vui lòng nhập lại. Nếu quên hãy liên hệ lại admin để lấy lại mật khẩu.'
-                    res.render('login',{
+                    res.render('loginClient',{
                         errorPassword,
                         usernameLogin,
                     });

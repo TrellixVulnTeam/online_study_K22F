@@ -8,16 +8,7 @@ const loginMiddleWare = require('../app/controllers/LoginMiddleWare');
 const logoutMiddleWare = require('../app/controllers/LogoutMiddleWare');
 const registerMiddleWare = require('../app/controllers/RegisterMiddleWare')
 
-const multer  = require('multer')
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'src/public/uploads/')
-    },
-    filename: function (req, file, cb) {
-      cb(null, 'test'+file.originalname)
-    }
-  })
-const upload = multer({ storage: storage })
+// const multer  = require('multer')
 // const upload = multer({ dest: 'src/public/uploads/' })
 
 
@@ -36,7 +27,8 @@ function route(app) {
     app.post('/loginClient',loginMiddleWare.postloginclient);
 
     app.get('/register',registerMiddleWare.register);
-    app.post('/register', upload.single('avatar'),registerMiddleWare.postregister);
+    app.post('/register',registerMiddleWare.postregister);
+    // app.post('/register', upload.single('avatar'),registerMiddleWare.postregister);
 
     app.use('/',checkCookies.check,siteRouter);
 }

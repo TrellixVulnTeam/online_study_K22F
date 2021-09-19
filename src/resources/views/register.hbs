@@ -2,7 +2,8 @@
     <div class="courseCreate">
         <div class="courseCreate_wrap">
             <h3>ĐĂNG KÍ</h3>
-            <form method="POST" enctype="multipart/form-data">
+            {{!-- <form method="POST" enctype="multipart/form-data"> --}}
+            <form method="POST">
                  <div class="courseCreate_form">
                     <label for="name">Họ Tên</label>
                     <input type="text" class="form-control" id="name" name="name" {{#if name}} value="{{name}}" {{/if}} required>   
@@ -35,10 +36,10 @@
                     </div>
                     {{/if}}
                 </div>
-                <div class="courseCreate_form">
+                {{!-- <div class="courseCreate_form">
                     <label for="avatar">Tải ảnh đại diện</label>
                     <input type="file" class="form-control-file" id="avatar" name="avatar" required>
-                </div>
+                </div> --}}
                 <button type="submit" class="courseCreate_form-btn">Đăng Ký</button>
             </form>
 

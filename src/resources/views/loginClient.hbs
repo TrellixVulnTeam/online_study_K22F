@@ -11,10 +11,10 @@
             </div>
             {{/if}}
             <h3>ĐĂNG NHẬP</h3>
-            <form method="POST">
+            <form method="POST" action="/loginClient">
                 <div class="courseCreate_form">
                     <label for="name">Tên tài khoản</label>
-                    <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} placeholder="{{usernameLogin}}" {{/if}} required>
+                    <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} value="{{usernameLogin}}" {{/if}} required>
                     {{#if errorUser}}
                     <div class="alert alert-danger courseCreate_error alert-dismissible fade show" role="alert">
                         <strong>Cảnh báo !!! </strong> {{errorUser}}

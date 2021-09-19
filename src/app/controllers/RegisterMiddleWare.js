@@ -41,7 +41,7 @@ class RegisterMiddleWare{
                                                 });
                                        }
                                        else{
-                                                req.body.avatar= '/'+req.file.path.split('\\').slice(2).join('/');
+                                                // req.body.avatar= '/'+req.file.path.split('\\').slice(2).join('/');
                                                 const client = new Client(req.body);
                                                 client.save()      
                                                 .then(() => {   

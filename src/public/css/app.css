@@ -80,7 +80,7 @@
 .home_polygon-text_button {
   position: absolute;
   top: 68%;
-  right: 51%;
+  right: 50%;
   transform: translateY(-50%);
   z-index: 1;
   text-align: center; }
