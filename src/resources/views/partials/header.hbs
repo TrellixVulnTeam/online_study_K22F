@@ -2,6 +2,9 @@
     <div class="grid wide">
         <div class="header_wrap">
             <ul class="header_list">
+                <li class="header_item  hide-on-pc" onclick="showListMB()">
+                    <i class="fas fa-bars header_item-link"></i>
+                </li>
                 <li class="header_item"><a class="header_item-link brand" href="/">KMA</a></li>
                 <li class="header_item hide-on-mobile"><a class="header_item-link" href="/">TRANG CHỦ</a></li>
                 <li class="header_item"><a class="header_item-link" href="/course">KHÓA HỌC</a>
@@ -23,9 +26,16 @@
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/cau-truc-du-lieu-va-giai-thuat">Cấu trúc dữ liệu giải thuật</a></li>
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/ky-thuat-vi-xu-ly">Kỹ thuật vi xử lý</a></li>
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/co-so-ly-thuyet-truyen-tin">Cơ sở lý thuyết truyền tin</a></li>
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/xu-ly-tin-hieu-so">Xử lý tín hiệu số</li>
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/thuat-toan-an-toan-thong-tin">Thuật toán ATTT</li>
                                 </ul>
                             </li>
-                            <li class="header_navbar-item"><a class="header_navbar-item_link" href="">Học kì 2 năm 3</a></li>
+                            <li class="header_navbar-item"><a class="header_navbar-item_link" href="/courseDetail/ki-6">Học kì 2 năm 3</a>
+                                <ul class="header_subnav-list">
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-6/he-thong-vien-thong">Hệ thống viễn thông</a></li>
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-6/phat-trien-ung-dung-web">Phát triển ứng dụng web</a></li>
+                                </ul>
+                            </li>
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="">Học kì 1 năm 4</a></li>
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="">Học kì 2 năm 4</a></li>
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="">Học kì 1 năm 5</a></li>
@@ -65,7 +75,6 @@
                 </li>
                {{/if}}
                
-
             </ul>
             <div class="searchMB hide-on-pc">
                 <form method="POST" action="/course" class="form-inline my-lg-0">
@@ -75,12 +84,67 @@
                     </div>   
                 </form>
             </div> 
+            <ul class="listMB hide-on-pc">
+                <i class="fas fa-times" style="float: right; padding:8px 12px" onclick="hideListMB()"></i>
+                {{#if user}}
+                <li class="listMB-item"> 
+                   <a href="" class="listMB-item_link" ><img class="header_item-img" src="/img/vietnam.png" alt="">{{user.name}}</a>
+                </li>
+                 <li class="listMB-item"><a class="listMB-item_link" href="/logout">Đăng xuất</a></li>
+               {{else}}
+                <li class="listMB-item">
+                     <a href="/register" class="listMB-item_link"> Đăng kí</a>
+                </li>
+                <li class="listMB-item">
+                    <a href="/loginClient" class="listMB-item_link">Đăng nhập </a>    
+                </li>
+                {{/if}}
+                <li class="listMB-item">
+                    <a  class="listMB-item_link" href="/">Trang chủ</a>
+                </li>
+                <li class="listMB-item">
+                    <a  class="listMB-item_link" href="http://pcdcourses.somee.com/"  target="_blank">Khóa học free</a>
+                </li>
+                <li class="listMB-item">
+                    <a  class="listMB-item_link" href="https://www.youtube.com/channel/UCvSkmTXALKYjA2LJziDifdA/playlists" target="_blank">Kênh Youtube</a>
+                </li>
+                <li class="listMB-item" onclick="showAdminMB()"><a class="listMB-item_link">Công cụ quản trị</a></li> 
+                <li class="listMB-item adMB"><a class="listMB-item_link" href="/course/create">Đăng khóa học</a></li>
+                <li class="listMB-item adMB"><a class="listMB-item_link" href="/me/stored/course">Tổng hợp khóa học</a></li>
+                <li class="listMB-item"> 
+                   <a href="" class="listMB-item_link" ><img class="header_item-img" src="/img/momo.png" alt="">0397.677.583</a>
+                </li>
+                <li class="listMB-item"> 
+                   <a href="" class="listMB-item_link" ><img class="header_item-img" src="/img/mbbank.png" alt="">9500101422009</a>
+                </li>
+            </ul>
+            <div class="overley hide-on-pc" onclick="hideListMB()"></div>
         </div>
     </div>
 </header>
 <script>
+    var listMB= document.querySelector('.listMB');
+    var overlay= document.querySelector('.overley');
+    var adminMB= document.getElementsByClassName('adMB')
     function showSearchMB(){
         searchMB= document.querySelector('.searchMB');
        searchMB.style.display= (searchMB.style.display == 'none') ? 'block' : 'none';
     }
+    
+    function showListMB(){
+           listMB.style.display='block';
+           overlay.style.display="block"; 
+    }
+
+    function hideListMB(){
+           listMB.style.display='none' 
+           overlay.style.display="none"; 
+    }
+    function showAdminMB(){
+           for(var i=0; i< adminMB.length; i++){
+               adminMB[i].style.display="block";
+           }
+    }
+
+    
 </script>

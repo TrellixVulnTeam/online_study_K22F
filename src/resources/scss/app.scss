@@ -743,7 +743,7 @@
     margin-left: 5px;
     font-size: 2.0rem;
     font-weight: 500;
-    color: #222;
+    color: #fff;
 }
 
 .store_wrap .form-control{
@@ -795,9 +795,12 @@
     text-decoration: none;
 }
 
+.store_body-item .form-check-input{
+    margin-left:unset;
+}
+
 .store_body-item:nth-child(1){
     width:2%;
-    justify-content: flex-end;
 }
 
 .store_body-item:nth-child(2){
