@@ -17,7 +17,7 @@ class LoginMiddleWare{
         }
         else{
                 User.findOne({_id :req.signedCookies.UserId})
-                 .then( user => {
+                    .then( user => {
                      if(!user){
                          res.render('login')
                      }
@@ -102,7 +102,7 @@ class LoginMiddleWare{
                      signed: true,
                      expires: new Date(Date.now() + 31 * 24 * 3600000)
                 });
-                res.redirect('back')
+                res.redirect('/')
                 next();
                 })  
             .catch(next)

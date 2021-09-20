@@ -11,7 +11,7 @@
             </div>
             {{/if}}
             <h3>ĐĂNG NHẬP</h3>
-            <form method="POST" action="/loginClient">
+            <form action="/loginClient" method="POST">
                 <div class="courseCreate_form">
                     <label for="name">Tên tài khoản</label>
                     <input type="text" class="form-control" id="name" name="name" {{#if errorPassword}} value="{{usernameLogin}}" {{/if}} required>

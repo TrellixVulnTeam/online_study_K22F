@@ -26,8 +26,8 @@
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/cau-truc-du-lieu-va-giai-thuat">Cấu trúc dữ liệu giải thuật</a></li>
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/ky-thuat-vi-xu-ly">Kỹ thuật vi xử lý</a></li>
                                     <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/co-so-ly-thuyet-truyen-tin">Cơ sở lý thuyết truyền tin</a></li>
-                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/xu-ly-tin-hieu-so">Xử lý tín hiệu số</li>
-                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/thuat-toan-an-toan-thong-tin">Thuật toán ATTT</li>
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/xu-ly-tin-hieu-so">Xử lý tín hiệu số</a></li>
+                                    <li class="header_subnav-item"><a class="header_subnav-item_link" href="/courseDetail/ki-5/thuat-toan-an-toan-thong-tin">Thuật toán ATTT</a></li>
                                 </ul>
                             </li>
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="/courseDetail/ki-6">Học kì 2 năm 3</a>
@@ -50,6 +50,26 @@
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="https://www.youtube.com/channel/UCvSkmTXALKYjA2LJziDifdA/playlists" target="_blank">Kênh Youtube</a></li>
                     </ul>
                 </li>
+                {{#if user}}
+                <li class="header_item hide-on-mobile hide-on-tablet">
+                    
+                   <a class="header_item-link" href="" >XEM SAU</a>
+                    
+                    <ul class="header_navbar-later">
+                        {{#each ClientCourseList}}
+                        <li class="header_navbar-later_item">
+                            <img class="header_navbar-later_item--img" src="{{this.image}}" alt="">
+                            <a href="/courseDetail/{{this._term}}/{{this.slug}}" class="header_navbar-later_item--link" >{{this.name}}</a>
+                            <a href="/deleteClient/{{this._id}}" style="color:red"><i class="fas fa-times"></i></a>
+                        </li>
+                        {{else}}
+                        <li class="header_navbar-later_item">Danh sách trống</li>
+                        {{/each}}
+                       
+                    </ul>
+
+                </li> 
+                {{/if}}
                 <li onclick="showSearchMB()" class="header_item header_searchMB hide-on-pc">
                     <i class="fas fa-search header_searchMB-link"></i>
                 </li>
@@ -66,6 +86,7 @@
                             <li class="header_navbar-item"><a class="header_navbar-item_link" href="/logout">ĐĂNG XUẤT</a></li>
                          </ul>
                </li>
+                
                {{else}}
                <li class="header_item hide-on-mobile">
                     <a href="/loginClient" class="header_item-link"> ĐĂNG NHẬP</a>

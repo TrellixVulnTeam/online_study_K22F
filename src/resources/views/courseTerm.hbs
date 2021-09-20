@@ -98,12 +98,18 @@
             <div class="row">
             {{#each courses}}
             <div class="col l-4 c-12">
-                   <div class="item">
+                 <div class="item">
                         <a href="/courseDetail/{{this._term}}/{{this.slug}}"><img class="item_img" src="{{this.image}}" alt="{{this.image}}"></a>
-                        <div class="item_content">
+                        <div class="item_content">         
                             <p class="item_content-title"><a href="/courseDetail/{{this._term}}/{{this.slug}}">{{this.name}}</a></p>
                             <p class="item_content-teacher">Giảng Viên: {{this.teacher}}</p>
                             <p class="item_content-term">{{this.term}}</p>
+                           
+                            <a href="/storeClient/{{this._id}}" class="item_content-button preSelected" data-slug="{{this.slug}}"><button type="button" class="btn btn-primary mt-4" style="font-size:1.6rem" >Thêm vào xem sau</button></a>
+                            <a href="/deleteClient/{{this._id}}" class="item_content-button delete" data-slug="{{this.slug}}"><button type="button" class="btn btn-danger mt-4" style="font-size:1.6rem" >Xóa khỏi xem sau</button></a>
+                            <a href="/" class="item_content-button selected" data-slug="{{this.slug}}"><button type="button" class="btn btn-success mt-4" style="font-size:1.6rem" disabled>Đã thêm</button></a>
+                            
+                           
                         </div>
                    </div>
 
@@ -114,3 +120,27 @@
         </div>
     </div>
 </div>
+<script>
+     var nameCourseSelected =Array.prototype.slice.call(document.querySelectorAll('.header_navbar-later_item--link'))
+    var courseDelete= Array.prototype.slice.call(document.querySelectorAll('.delete'))
+    var coursePreSelected= Array.prototype.slice.call(document.querySelectorAll('.preSelected'))
+    var courseSelected= Array.prototype.slice.call(document.querySelectorAll('.selected'))
+    var arrayCourseSelected= [];
+    for (var i= 0; i<nameCourseSelected.length; i++ ){
+        arrayCourseSelected.push(nameCourseSelected[i].href.split('/').slice(5).join(''))
+    }
+    for (var i= 0; i<coursePreSelected.length; i++ ){
+        if(arrayCourseSelected.includes(coursePreSelected[i].dataset.slug)){
+                coursePreSelected[i].style.display="none";
+                courseSelected[i].style.display="inline-block";
+                courseDelete[i].style.display="inline-block";
+        }
+        else{
+                 coursePreSelected[i].style.display="inline-block";
+                courseSelected[i].style.display="none";
+                courseDelete[i].style.display="none";
+        }
+       
+    }
+    
+</script>

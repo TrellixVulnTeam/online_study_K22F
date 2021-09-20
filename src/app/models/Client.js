@@ -10,6 +10,7 @@ const Client = new Schema({
     user: {type: String, require:true},
     password: {type: String, require:true},
     avatar: {type: String, require:true},
+    store : { type : Array , "default" : [] }
   }, {
     timestamps: true,
   });
