@@ -111,7 +111,7 @@
                 <li class="listMB-item"> 
                    <a href="" class="listMB-item_link" ><img class="header_item-img" src="/img/vietnam.png" alt="">{{user.name}}</a>
                 </li>
-                 <li class="listMB-item"><a class="listMB-item_link" href="/logout">Đăng xuất</a></li>
+                 <li class="listMB-item"><a class="listMB-item_link" href="/logout"><i class="fas fa-power-off mr-4" style="color:red"></i>Đăng xuất</a></li>
                {{else}}
                 <li class="listMB-item">
                      <a href="/register" class="listMB-item_link"> Đăng kí</a>
@@ -123,6 +123,21 @@
                 <li class="listMB-item">
                     <a  class="listMB-item_link" href="/">Trang chủ</a>
                 </li>
+                {{#if user}}
+                <li class="listMB-item" onclick="showSeenLaterMB()">
+                    <a  class="listMB-item_link">Danh sách xem sau</a>
+                </li>
+                 {{#each ClientCourseList}}
+                <li class="listMB-item seenLater">
+                    <img class="header_navbar-later_item--img" src="{{this.image}}" alt="">
+                    <a href="/courseDetail/{{this._term}}/{{this.slug}}" class="header_navbar-later_item--link" >{{this.name}}</a>
+                    <a href="/deleteClient/{{this._id}}" style="color:red"><i class="fas fa-times"></i></a>
+                </li>
+                 {{else}}
+                <li class="header_navbar-later_item">Danh sách trống</li>
+                {{/each}}
+                 {{/if}}
+
                 <li class="listMB-item">
                     <a  class="listMB-item_link" href="http://pcdcourses.somee.com/"  target="_blank">Khóa học free</a>
                 </li>
@@ -147,6 +162,7 @@
     var listMB= document.querySelector('.listMB');
     var overlay= document.querySelector('.overley');
     var adminMB= document.getElementsByClassName('adMB')
+    var seenLater =document.getElementsByClassName('seenLater')
     function showSearchMB(){
         searchMB= document.querySelector('.searchMB');
        searchMB.style.display= (searchMB.style.display == 'none') ? 'block' : 'none';
@@ -163,7 +179,12 @@
     }
     function showAdminMB(){
            for(var i=0; i< adminMB.length; i++){
-               adminMB[i].style.display="block";
+               adminMB[i].style.display=(adminMB[i].style.display == 'none') ? 'block' : 'none';
+           }
+    }
+    function showSeenLaterMB() {
+            for(var i=0; i< seenLater.length; i++){
+               seenLater[i].style.display=(seenLater[i].style.display == 'none') ? 'flex' : 'none';
            }
     }
 
