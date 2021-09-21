@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const courseDetailController = require('../app/controllers/CourseDetailController');
 const loginMiddleWare = require('../app/controllers/LoginMiddleWare');
+const clientController = require('../app/controllers/ClientController')
 
 router.post('/:term/:slug/trash/handle-form-actions',loginMiddleWare.login,courseDetailController.trashHandleFormActions);
 router.post('/:term/:slug/handle-form-actions',courseDetailController.handleFormActions);
@@ -25,7 +26,7 @@ router.get('/:term/:slug/storeCourseDetail',loginMiddleWare.login,courseDetailCo
 router.post('/:term/:slug/storeCourseDetail',loginMiddleWare.postlogin,courseDetailController.storeCourseDetail);
 
 router.post('/:term/:slug/store',courseDetailController.store);
-router.get('/:term/:slug',courseDetailController.show);
+router.get('/:term/:slug',clientController.findCourse,courseDetailController.show);
 
 router.get('/:term',courseDetailController.term);
 

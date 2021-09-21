@@ -3,6 +3,7 @@ const router = express.Router();
 const courseController = require('../app/controllers/CourseController');
 const loginMiddleWare = require('../app/controllers/LoginMiddleWare');
 const checkCookies = require('../app/controllers/CheckCookies');
+const clientController = require('../app/controllers/ClientController');
 
 
 router.post('/trash/handle-form-actions',courseController.trashHandleFormActions)
@@ -18,12 +19,12 @@ router.post('/store',courseController.store);
 router.get('/create',loginMiddleWare.login,courseController.create);
 router.post('/create',loginMiddleWare.postlogin,courseController.create);
 
-router.post('/',courseController.search);
+router.post('/',clientController.findCourse,courseController.search);
 
 
 
 
 
-router.get('/', courseController.index);
+router.get('/',clientController.findCourse,courseController.index);
 
 module.exports = router;

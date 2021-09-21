@@ -111,7 +111,7 @@
                 <li class="listMB-item"> 
                    <a href="" class="listMB-item_link" ><img class="header_item-img" src="/img/vietnam.png" alt="">{{user.name}}</a>
                 </li>
-                 <li class="listMB-item"><a class="listMB-item_link" href="/logout"><i class="fas fa-power-off mr-4" style="color:red"></i>Đăng xuất</a></li>
+                 <li class="listMB-item"><a href="/logout" class="listMB-item_link"><i class="fas fa-power-off mr-4" style="color:red"></i>Đăng xuất</a></li>
                {{else}}
                 <li class="listMB-item">
                      <a href="/register" class="listMB-item_link"> Đăng kí</a>
@@ -134,7 +134,7 @@
                     <a href="/deleteClient/{{this._id}}" style="color:red"><i class="fas fa-times"></i></a>
                 </li>
                  {{else}}
-                <li class="header_navbar-later_item">Danh sách trống</li>
+                <li class="listMB-item seenLater">Danh sách trống</li>
                 {{/each}}
                  {{/if}}
 

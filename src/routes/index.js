@@ -14,12 +14,12 @@ const clientController = require('../app/controllers/ClientController')
 
 
 function route(app) {
-    app.use('/courseDetail',checkCookies.check,clientController.findCourse,courseDetailRouter);
-    app.use('/course',checkCookies.check,clientController.findCourse,courseRouter);
-    app.use('/me',checkCookies.check,clientController.findCourse,meRouter);
+    app.use('/courseDetail',checkCookies.check,courseDetailRouter);
+    app.use('/course',checkCookies.check,courseRouter);
+    app.use('/me',checkCookies.check,meRouter);
     app.use('/news',checkCookies.check, clientController.findCourse,newsRouter);
 
-    app.get('/logout',clientController.findCourse,logoutMiddleWare.logout);
+    app.get('/logout',logoutMiddleWare.logout);
 
     app.get('/login',clientController.findCourse,loginMiddleWare.login);
     app.post('/login',clientController.findCourse,loginMiddleWare.postlogin);

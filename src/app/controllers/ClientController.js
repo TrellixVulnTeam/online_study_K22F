@@ -33,7 +33,13 @@ class ClientController{
     findCourse(req,res,next){
         if(req.signedCookies.UserId){
             Client.findOne({_id: req.signedCookies.UserId})
-            .then(client => {return client.store})
+            .then(client => {
+                if(client){return client.store}
+                else {
+                    next();
+                }
+                
+            })
             .then(store =>{
                 return Course.find({_id:{$in:store}})
             })
